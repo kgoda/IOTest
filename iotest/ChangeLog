@@ -1,0 +1,58 @@
+2008-05-08  GODA Kazuo  <kgoda@tkl.iis.u-tokyo.ac.jp>
+
+	* iotest.c: Supports Intel EM64T.
+
+	* TO FIX: response time is not correctly measured when using
+	libaio.	
+
+2007-09-28  GODA Kazuo  <kgoda@tkl.iis.u-tokyo.ac.jp>
+
+	* iotest.h: libaio.h to be included only on linux.
+
+	* iotest.c: Supports libaio's asynchronous ios only on linux.
+
+2007-09-27  GODA Kazuo  <kgoda@tkl.iis.u-tokyo.ac.jp>
+
+	* iotest.h: Added _GNU_SOURCE for activating O_DIRECT in RHEL 4
+	or later.
+
+	* iotest.c: Maximum response time to be measured.
+
+	* iotest.c: Supports multiple devices.
+
+2006-06-20  GODA Kazuo  <kgoda@tkl.iis.u-tokyo.ac.jp>
+
+	* iotest.c: Changed the meanings of "synchronous" and
+	"asynchronous". So far, multilplexed IOs are called
+	asynchronous, and vice versa. Here after, IOs which bypasses
+	buffer cache are called synchronous, and buffered IOs are
+	called asynchronous.
+
+	* iotest.c: Bugs fixed; the definitions of IS_SINGLE and
+	IS_MULTIPLE.
+
+	* iotest.c: O_SYNC and O_DIRECT were implemented.
+
+2006-06-19  GODA Kazuo  <kgoda@tkl.iis.u-tokyo.ac.jp>
+
+	* iotest.c: A constant MAX_MULTI was changed from 64 to 4096.
+	(But, curreltly our Linux limits it to 1024.)
+	
+2006-06-12  GODA Kazuo  <kgoda@tkl.iis.u-tokyo.ac.jp>
+
+	* Drastically changed iotest. First, we introduced asynchronous
+	IO operations. Second, we do no longer support sampling function
+	of IO throughput. At this point, we entered a new version series
+	1.20. But there might be remaining some bugs.
+
+2006-05-30  GODA Kazuo  <kgoda@tkl.iis.u-tokyo.ac.jp>
+
+	* iotest.c: Changed slightly the result format.
+
+	* iotest.c: Added -V option, which displays version infomation.
+
+2006-05-26  GODA Kazuo  <kgoda@tkl.iis.u-tokyo.ac.jp>
+
+	* iotest is a small tool to measure IO performance of database
+	servers. The original was made over file years ago, and many
+	revisions have been done so far.
